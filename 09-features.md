@@ -41,6 +41,7 @@ The Context column decodes as follows:
 | 20/21 | `option_anchor_outputs`          | Anchor outputs                                            | IN       | `option_static_remotekey` | [BOLT #3](03-transactions.md)         |
 | 22/23 | `option_anchors_zero_fee_htlc_tx` | Anchor commitment type with zero fee HTLC transactions   | IN       | `option_static_remotekey` | [BOLT #3][bolt03-htlc-tx], [lightning-dev][ml-sighash-single-harmful]|
 | 26/27 | `option_shutdown_anysegwit`         | Future segwit versions allowed in `shutdown`              | IN       |                   | [BOLT #2][bolt02-shutdown]   |
+| 28/29 | `option_dual_fund`             | Use v2 of channel open, enables dual funding              | IN      | `option_anchors_zero_fee_htlc_tx`   | [BOLT #2](02-peer-protocol.md)        |
 | 44/45 | `option_channel_type`            | Node supports the `channel_type` field in open/accept     | IN       |                   | [BOLT #2](02-peer-protocol.md#the-open_channel-message) |
 | 46/47 | `option_scid_alias`              | Supply channel aliases for routing                        | IN       |                   | [BOLT #2][bolt02-channel-ready]   |
 | 48/49 | `option_payment_metadata` | Payment metadata in tlv record | 9 | | [BOLT #11](11-payment-encoding.md#tagged-fields)
