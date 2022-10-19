@@ -31,7 +31,7 @@ This details the exact format of on-chain transactions, which both sides need to
         * [Per-commitment Secret Requirements](#per-commitment-secret-requirements)
     * [Efficient Per-commitment Secret Storage](#efficient-per-commitment-secret-storage)
   * [Appendix A: Expected Weights](#appendix-a-expected-weights)
-      * [Expected Weight of the Funding Transaction (v2 Channel Establishment)](#expected-weight-of-the-funding-transaction-(v2-channel-establishment))
+      * [Expected Weight of the Funding Transaction (v2 Channel Establishment)](#expected-weight-of-the-funding-transaction-v2-channel-establishment)
       * [Expected Weight of the Commitment Transaction](#expected-weight-of-the-commitment-transaction)
       * [Expected Weight of HTLC-timeout and HTLC-success Transactions](#expected-weight-of-htlc-timeout-and-htlc-success-transactions)
   * [Appendix B: Funding Transaction Test Vectors](#appendix-b-funding-transaction-test-vectors)
@@ -494,7 +494,7 @@ A node:
 ### Calculating Fees for Collaborative Transactions
 
 For transactions constructed using the [interactive protocol](02-peer-protocol.md#interactive-transaction-construction),
-fees are paid by each party to the transaction, at `feerate` determined during the
+fees are paid by each party to the transaction, at a `feerate` determined during the
 initiation, with the initiator covering the fees for the common transaction fields.
 
 ## Dust Limits
@@ -840,18 +840,18 @@ at each bucket is a prefix of the desired index.
 
 The *expected weight* of a funding transaction is calculated as follows:
 
-      inputs: 40 bytes + var_int + `scriptlen`
+      inputs: 41 bytes
         - previous_out_point: 36 bytes
           - hash: 32 bytes
           - index: 4 bytes
-        - var_int: ? bytes (dependent on `scriptlen`)
-        - script_sig: `scriptlen`
+        - var_int: 1 byte
+        - script_sig: 0 bytes
         - witness <---- Cost for "witness" data calculated separately.
         - sequence: 4 bytes
 
-      non_funding_outputs: 8 bytes + var_int + `scriptlen`
+      non_funding_outputs: 9 bytes + `scriptlen`
         - value: 8 bytes
-        - var_int: ? bytes (dependent on `scriptlen`)
+        - var_int: 1 byte <---- assuming a standard output script
         - script: `scriptlen`
 
       funding_output: 43 bytes
@@ -865,8 +865,7 @@ Multiplying non-witness data by 4 results in a weight of:
 
       // transaction_fields = 10 (version, input count, output count, locktime)
       // segwit_fields = 2 (marker + flag)
-      // funding_transaction = 43 + num_inputs * 40 + num_outputs * 8
-      //                       + sum(scriptlen) + sum(var_ints) +
+      // funding_transaction = 43 + num_inputs * 41 + num_outputs * 9 + sum(scriptlen)
       funding_transaction_weight = 4 * (funding_transaction + transaction_fields) + segwit_fields
 
       witness_weight = sum(witness_len)
