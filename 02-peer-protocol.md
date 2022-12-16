@@ -16,6 +16,8 @@ operation, and closing.
       * [The `tx_remove_input` and `tx_remove_output` Messages](#the-tx_remove_input-and-tx_remove_output-messages)
       * [The `tx_complete` Message](#the-tx_complete-message)
       * [The `tx_signatures` Message](#the-tx_signatures-message)
+      * [The `tx_init_rbf` Message](#the-tx_init_rbf-message)
+      * [The `tx_ack_rbf` Message](#the-tx_ack_rbf-message)
       * [The `tx_abort` Message](#the-tx_abort-message)
     * [Channel Establishment v1](#channel-establishment-v1)
       * [The `open_channel` Message](#the-open_channel-message)
