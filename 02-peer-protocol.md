@@ -1112,6 +1112,7 @@ This message initiates the v2 channel establishment workflow.
    * [`point`:`delayed_payment_basepoint`]
    * [`point`:`htlc_basepoint`]
    * [`point`:`first_per_commitment_point`]
+   * [`point`:`second_per_commitment_point`]
    * [`byte`:`channel_flags`]
    * [`opening_tlvs`:`tlvs`]
 
@@ -1165,6 +1166,9 @@ rounded down to the nearest whole satoshi or the `dust_limit_satoshis`,
 whichever is greater.
 
 Note that `push_msat` has been omitted.
+
+`second_per_commitment_point` is now sent here (as well as in `channel_ready`)
+as a convenience for implementations.
 
 ### The `accept_channel2` Message
 
