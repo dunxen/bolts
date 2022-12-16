@@ -13,7 +13,7 @@ operation, and closing.
       * [Overview](#overview)
       * [The `tx_add_input` Message](#the-tx_add_input-message)
       * [The `tx_add_output` Message](#the-tx_add_output-message)
-      * [The `tx_remove_input` and `tx_remote_output` Messages](#the-tx_remove_input-and-tx_remove_output-messages)
+      * [The `tx_remove_input` and `tx_remove_output` Messages](#the-tx_remove_input-and-tx_remove_output-messages)
       * [The `tx_complete` Message](#the-tx_complete-message)
       * [The `tx_signatures` Message](#the-tx_signatures-message)
       * [The `tx_abort` Message](#the-tx_abort-message)
