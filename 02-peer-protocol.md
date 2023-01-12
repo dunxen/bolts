@@ -521,6 +521,8 @@ A receiving node:
       have been spent.
   - if they have not sent `tx_signatures`:
     - SHOULD forget the current negotiation and reset their state.
+  - if they have not sent `tx_abort`:
+    - MUST echo back `tx_abort`
 
 #### Rationale
 
@@ -532,6 +534,11 @@ eligible to be spent (i.e. any input has been spent in a different transaction).
 The `tx_abort` message allows for the cancellation of an in progress negotiation,
 and a return to the initial starting state. It is distinct from the `error`
 message, which triggers a channel close.
+
+Echoing back `tx_abort` allows the peer to ack that they've seen the abort message,
+permitting the originating peer to terminate the in-flight process without
+worrying about stale messages.
+
 
 ## Channel Establishment v1
 
