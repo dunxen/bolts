@@ -1210,6 +1210,7 @@ acceptance of the new channel.
     * [`point`:`delayed_payment_basepoint`]
     * [`point`:`htlc_basepoint`]
     * [`point`:`first_per_commitment_point`]
+    * [`point`:`second_per_commitment_point`]
     * [`accept_tlvs`:`tlvs`]
 
 1. `tlv_stream`: `accept_tlvs`
