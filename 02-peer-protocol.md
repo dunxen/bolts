@@ -1133,8 +1133,6 @@ This message initiates the v2 channel establishment workflow.
    2. data:
         * [`...*byte`:`type`]
    1. type: 2 (`require_confirmed_inputs`)
-   2. data:
-        * [`0*byte`:``]
 
 Rationale and Requirements are the same as for [`open_channel`](#the-open_channel-message),
 with the following additions.
@@ -1222,8 +1220,6 @@ acceptance of the new channel.
    2. data:
         * [`...*byte`:`type`]
    1. type: 2 (`require_confirmed_inputs`)
-   2. data:
-        * [`0*byte`:``]
 
 Rationale and Requirements are the same as listed above,
 for [`accept_channel`](#the-accept_channel-message) with the following
